@@ -15,9 +15,11 @@ class AnalisisFrase {
 
         Scanner teclado = new Scanner(System.in);
 
+        // Se solicita al usuario ingresar una frase
         System.out.println("Ingrese una frase:");
         String frase = teclado.nextLine();
 
+        // Vector donde se almacenan los resultados
         int[] resultados = new int[4];
 
         // resultados[0] = palabras
@@ -30,20 +32,23 @@ class AnalisisFrase {
         resultados[2] = contarConsonantes(frase);
         resultados[3] = contarSimbolos(frase);
 
+        // Se imprimen los resultados
         System.out.println("La frase ingresada es: " + frase);
         System.out.println("Cantidad de palabras: " + resultados[0]);
         System.out.println("Cantidad de vocales: " + resultados[1]);
         System.out.println("Cantidad de consonantes: " + resultados[2]);
         System.out.println("Cantidad de simbolos: " + resultados[3]);
+
+        teclado.close();
     }
 
+    // Metodo que cuenta la cantidad de palabras en la frase
     public static int contarPalabras(String frase) {
 
         int contador = 0;
         boolean dentroPalabra = false;
 
         for (int i = 0; i < frase.length(); i++) {
-
             char c = frase.charAt(i);
 
             if (c != ' ') {
@@ -59,12 +64,12 @@ class AnalisisFrase {
         return contador;
     }
 
+    // Metodo que cuenta la cantidad de vocales en la frase
     public static int contarVocales(String frase) {
 
         int cantidadVocales = 0;
 
         for (int i = 0; i < frase.length(); i++) {
-
             char letra = Character.toLowerCase(frase.charAt(i));
 
             if (letra == 'a' || letra == 'e' || letra == 'i' || letra == 'o' || letra == 'u') {
@@ -75,16 +80,15 @@ class AnalisisFrase {
         return cantidadVocales;
     }
 
+    // Metodo que cuenta la cantidad de consonantes en la frase
     public static int contarConsonantes(String frase) {
 
         int cantidadConsonantes = 0;
 
         for (int i = 0; i < frase.length(); i++) {
-
             char letra = Character.toLowerCase(frase.charAt(i));
 
             if (letra >= 'a' && letra <= 'z') {
-
                 if (!(letra == 'a' || letra == 'e' || letra == 'i' || letra == 'o' || letra == 'u')) {
                     cantidadConsonantes++;
                 }
@@ -94,12 +98,12 @@ class AnalisisFrase {
         return cantidadConsonantes;
     }
 
+    // Metodo que cuenta la cantidad de simbolos en la frase
     public static int contarSimbolos(String frase) {
 
         int cantidadSimbolos = 0;
 
         for (int i = 0; i < frase.length(); i++) {
-
             char c = frase.charAt(i);
 
             if (!Character.isLetter(c) && c != ' ') {
@@ -109,5 +113,4 @@ class AnalisisFrase {
 
         return cantidadSimbolos;
     }
-
 }
