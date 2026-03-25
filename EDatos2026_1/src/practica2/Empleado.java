@@ -13,6 +13,7 @@ public abstract class Empleado extends Persona {
     public static final int SALARIO_MINIMO = 3000000;
     
     public abstract int calcularSalario();
+    public abstract int getIPS();
 
     public Empleado() {
     }

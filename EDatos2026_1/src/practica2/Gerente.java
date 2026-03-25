@@ -38,7 +38,14 @@ public class Gerente extends Empleado {
     
     @Override
     public int calcularSalario() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int salario= Math.round((getSueldo()+bonificacion)*0.91f);
+        return salario;
+
+
+    }
+    @Override
+    public int getIPS(){
+        return Math.round((getSueldo()+bonificacion)*0.91f);
     }
     
 }
